@@ -2,10 +2,14 @@
 @rendermode InteractiveServer
 @using Models;
 
+<div class="statistics">
+	<h5>Всего:@tasklist.Count</h5>
+	<h5>Выполнено:@tasklist.Where(t => t.DONE == true).ToList().Count</h5>
+	<h5>Осталось:@tasklist.Where(t => t.DONE == false).ToList().Count</h5>
+</div>
+<hr />
 <input type="text" @bind="description" />
 <input type="button" value="Добавить" @onclick="AddTask" class="btn btn-primary"/>
-<hr />
-<h5>Всего:@tasklist.Count</h5>
 <hr />
 
 <h3>Tasklist</h3>
@@ -13,13 +17,22 @@
 <ul>
 	@foreach (TODO item in tasklist)
 	{
-		<li>@item.Description</li>
+		<li>
+			<input type="checkbox" id="@item.Description" @bind="@item.DONE" />
+			<label for="@item.Description">@item.Description</label>
+		</li>
 	}
 </ul>
 
 @code
 {
-	List<Models.TODO> tasklist = [];
+	// List<Models.TODO> tasklist = [];
+	List<Models.TODO> tasklist =
+	[
+		new TODO{ Description = "Полить цветы" },
+		new TODO{ Description = "Покормить кота" },
+		new TODO{ Description = "Сделать домашку" },
+	];
 	string description = "";
 	void AddTask()
 	{
