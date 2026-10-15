@@ -2,6 +2,10 @@
 https://www.youtube.com/playlist?list=PLLauQPadB5QI
 
 TODO:
+1. Выложить проекты на хостинг;
+
+
+DONE:
 1. В проекте 'Blazor' создать подменю 'Numerics'.
 2. В этом подменю будет 4 пункта:
 	Dec2Bin;
