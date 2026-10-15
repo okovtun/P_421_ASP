@@ -1,14 +1,56 @@
 ﻿ul
 {
-	list-style:none;
+	list-style: none;
 }
-input[type=checkbox]:checked + label
-{
-	color:gray;
-	text-decoration:line-through;
-}
-.statistics
+li
 {
 	display:flex;
 	justify-content:space-between;
+	align-items:center;
+	height:49px;
+}
+li:hover
+{
+	padding:0;
+	background-color: lightgray;
+}
+li > div
+{
+	visibility:hidden;
+}
+li:hover > div
+{
+	visibility:visible;
+	font-family:'Wingdings 2';
+	font-size:32px;
+}
+li > div
+{
+	cursor:default;
+	width:32px;
+	height:32px;
+	margin:0;
+}
+li>div:hover
+{
+	border:solid 1px;
+	background-color:white;
+}
+
+input[type=checkbox]:checked + label
+{
+	color: gray;
+	text-decoration: line-through;
+}
+
+label
+{
+	width: 90%;
+	/*height:32px;*/
+}
+
+.statistics
+{
+	display: flex;
+	justify-content: space-between;
 }
