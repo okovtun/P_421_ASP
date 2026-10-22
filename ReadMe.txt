@@ -2,8 +2,8 @@
 https://www.youtube.com/playlist?list=PLLauQPadB5QI
 
 TODO:
-1. Выложить проекты на хостинг;
-
+1. Выложить проекты на хостинг:
+	https://www.monsterasp.net/
 
 DONE:
 1. В проекте 'Blazor' создать подменю 'Numerics'.
