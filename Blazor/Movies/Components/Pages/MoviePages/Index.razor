@@ -13,8 +13,20 @@
 	<h1>Киношки</h1>
 	<form action="/movies">
 		<input type="search" name="titleFilter" />
-		<input type="submit" value="Поиск" class="btn btn-primary"/>
+		<input type="submit" value="Поиск" class="btn btn-primary" />
 	</form>
+	<div>
+		<label for="items-per-page">
+			Items per page:
+		</label>
+
+		<select id="items-per-page" @bind="pagination.ItemsPerPage" class="form-control">
+			<option value="3">3</option>
+			<option value="5">5</option>
+			<option value="8">8</option>
+			<option value="13">13</option>
+		</select>
+	</div>
 	<div>
 		<a href="movies/create" class="btn btn-primary">Create New</a>
 	</div>
@@ -25,8 +37,7 @@
 	<TemplateColumn Context="movie"
 					Title="Movie"
 					Sortable="true"
-					SortBy="sortBy"
-					>
+					SortBy="sortBy">
 		<a href="@($"movies/details?id={movie.Id}")">@movie.Title</a>
 	</TemplateColumn>
 	<PropertyColumn Sortable="true" Property="movie => movie.ReleaseDate" />
