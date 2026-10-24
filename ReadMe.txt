@@ -2,6 +2,12 @@
 https://www.youtube.com/playlist?list=PLLauQPadB5QI
 
 TODO:
+1. На странице 'Directions' реализовать:
+	Сортировку;
+	Поиск;
+	Pagination;
+
+TODO:
 1. Выложить проекты на хостинг:
 	https://www.monsterasp.net/
 
