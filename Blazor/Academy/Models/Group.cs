@@ -15,15 +15,16 @@ namespace Academy.Models
 		public string group_name { get; set; }
 
 		[Required]
+		[Column("direction", TypeName = "TINYINT")]
 		public int direction { get; set; }
 
 		[Column("start_date", TypeName = "DATE")]
-		public DateOnly start_date { get; set; }
+		public DateOnly? start_date { get; set; }
 
 		[Column("start_time", TypeName = "TIME(0)")]
-		public TimeOnly start_time { get; set; }
+		public TimeOnly? start_time { get; set; }
 
 		[Column("learning_days", TypeName = "TINYINT")]
-		public int learning_days { get; set; }
+		public int? learning_days { get; set; }
 	}
 }
