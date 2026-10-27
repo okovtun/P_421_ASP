@@ -2,6 +2,12 @@
 https://www.youtube.com/playlist?list=PLLauQPadB5QI
 
 TODO:
+1. На странице 'Groups' реализовать:
+	Сортировку;
+	Поиск;
+	Pagination;
+
+DONE:
 1. На странице 'Directions' реализовать:
 	Сортировку;
 	Поиск;
