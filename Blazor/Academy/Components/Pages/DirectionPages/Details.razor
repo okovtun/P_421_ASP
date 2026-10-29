@@ -1,5 +1,6 @@
 ﻿@page "/directions/details"
 @using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
 @using Academy.Models
 @inject IDbContextFactory<Academy.Data.AcademyContext> DbFactory
 @inject NavigationManager NavigationManager
@@ -27,12 +28,19 @@
 			<dd class="col-sm-10">@direction.direction_name</dd>
 		</dl> *@
 		<h2>Количество групп: @direction.Groups.Count </h2>
-		<ul>
+		<QuickGrid Items="direction.Groups.AsQueryable()" Class="table">
+			<PropertyColumn Property="group => group.group_name" />
+			<PropertyColumn Property="group => group.start_date" />
+			<PropertyColumn Property="group => group.start_time" />
+			<PropertyColumn Property="group => group.learning_days" />
+			@* <PropertyColumn Property="direction => direction.direction_name" /> *@
+		</QuickGrid>
+		@* <ul>
 			@foreach (Group group in direction.Groups)
 			{
 				<li>@group.group_name</li>
 			}
-		</ul>
+		</ul> *@
 		@* <div>
 			<a href="@($"/directions")">Back to List</a>
 		</div> *@
