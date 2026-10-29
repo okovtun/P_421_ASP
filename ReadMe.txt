@@ -2,6 +2,10 @@
 https://www.youtube.com/playlist?list=PLLauQPadB5QI
 
 TODO:
+0. Выучить конспект по Системам Счисления наизусть:
+	https://github.com/okovtun/P_421_NP/blob/master/NumericSystems.pdf
+
+TODO:
 1. На странице 'Groups' реализовать:
 	Сортировку;
 	Поиск;
