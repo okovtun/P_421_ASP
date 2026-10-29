@@ -16,8 +16,9 @@
 	</p>
 </div>
 
-<QuickGrid Class="table" Items="context.Directions">
+<QuickGrid Class="table" Items="context.Directions.Include(d => d.Groups)">
     <PropertyColumn Property="direction => direction.direction_name" />
+    <PropertyColumn Property="direction => direction.Groups.Count" Title="Groups count" />
 
     <TemplateColumn Context="direction">
         <a href="@($"directions/edit?direction_id={direction.direction_id}")">Edit</a> |
