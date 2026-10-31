@@ -4,6 +4,7 @@ https://www.youtube.com/playlist?list=PLLauQPadB5QI
 TODO:
 0. Выучить конспект по Системам Счисления наизусть:
 	https://github.com/okovtun/P_421_NP/blob/master/NumericSystems.pdf
+1. Подумать над тем, как выставлять учебные дни при создании либо изменении группы;
 
 TODO:
 1. На странице 'Groups' реализовать:
