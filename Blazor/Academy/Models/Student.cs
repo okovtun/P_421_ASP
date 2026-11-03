@@ -8,6 +8,11 @@ namespace Academy.Models
 	{
 		[Key]
 		public int stud_id { get; set; }
+
+		[ForeignKey(nameof(Group))]
 		public int group { get; set; }
+
+		//Navigation properties:
+		public Group Group { get; set; }
 	}
 }

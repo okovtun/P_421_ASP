@@ -2,6 +2,10 @@
 https://www.youtube.com/playlist?list=PLLauQPadB5QI
 
 TODO:
+1. Подумать над тем, какие NavigationProperties и CalculatedProperties нужны в классе 'Student';
+2. Подумать над тем, в каких других классах будут NavigationProperties для класса 'Student';
+
+DONE:
 0. Выучить конспект по Системам Счисления наизусть:
 	https://github.com/okovtun/P_421_NP/blob/master/NumericSystems.pdf
 1. Подумать над тем, как выставлять учебные дни при создании либо изменении группы;
