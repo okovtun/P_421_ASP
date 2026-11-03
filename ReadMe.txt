@@ -2,6 +2,11 @@
 https://www.youtube.com/playlist?list=PLLauQPadB5QI
 
 TODO:
+1. На страницу 'Students/Index' для каждого студента добавить возраст, и обеспечить сортировку по возрасту;
+2. Для студентов обеспечить текстовый поиск и Pagination;
+3. 
+
+DONE:
 1. Подумать над тем, какие NavigationProperties и CalculatedProperties нужны в классе 'Student';
 2. Подумать над тем, в каких других классах будут NavigationProperties для класса 'Student';
 
