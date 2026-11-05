@@ -17,14 +17,15 @@
 	</p>
 </div>
 
-<QuickGrid Class="table" Items="context.Directions.Include(d => d.Groups)">
+<QuickGrid Class="table" Items="context.Directions.Include(d => d.Groups).ThenInclude(g => g.Students)">
     <PropertyColumn Sortable="true" Property="direction => direction.direction_name" />
     <PropertyColumn Sortable="true" Property="direction => direction.Groups.Count" Title="Groups count" />
+    <PropertyColumn Sortable="true" Property="direction => direction.Groups.Sum(g => g.Students.Count)" Title="Students count" />
 
     <TemplateColumn Context="direction">
-        <a href="@($"directions/edit?direction_id={direction.direction_id}")">Edit</a> |
-        <a href="@($"directions/details?direction_id={direction.direction_id}")">Details</a> |
-        <a href="@($"directions/delete?direction_id={direction.direction_id}")">Delete</a>
+        @* <a href="@($"directions/edit?direction_id={direction.direction_id}")">Edit</a> | *@
+        <a href="@($"directions/details?direction_id={direction.direction_id}")">Details</a>
+        @* <a href="@($"directions/delete?direction_id={direction.direction_id}")">Delete</a> *@
     </TemplateColumn>
 </QuickGrid>
 
