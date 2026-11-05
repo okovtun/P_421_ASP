@@ -6,6 +6,8 @@ namespace Academy.Models
 {
 	public class Human
 	{
+		//Scalar properties:
+		//Скалярные свойства описывают поля в таблице Базы Данных, например _____id, name, и т.д.
 		[Required]
 		[StringLength(50)]
 		[DisplayName("Фамилия")]
@@ -35,6 +37,10 @@ namespace Academy.Models
 		public string full_name
 		{
 			get => $"{last_name} {first_name} {middle_name}";
+		}
+		public int age
+		{
+			get=> (int)((DateTime.Now.Date - birth_date.ToDateTime(new TimeOnly(0)).Date).Days/365.25);
 		}
 	}
 }
