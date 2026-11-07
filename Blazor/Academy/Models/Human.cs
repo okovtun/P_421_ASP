@@ -11,7 +11,7 @@ namespace Academy.Models
 		[Required]
 		[StringLength(50)]
 		[DisplayName("Фамилия")]
-		[RegularExpression(@"^[A-ZА-Я]+[a-zа-я]*$")]
+		[RegularExpression(@"^[A-ZА-ЯЁ]+[a-zа-яё]*$")]
 		public string last_name { get; set; }
 
 		[Required]
