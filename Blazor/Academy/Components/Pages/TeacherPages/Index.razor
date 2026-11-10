@@ -32,7 +32,14 @@
     @* <PropertyColumn Property="teacher => teacher.email" />
     <PropertyColumn Property="teacher => teacher.phone" />
     <PropertyColumn Property="teacher => teacher.photo" /> *@
-    <PropertyColumn Property="teacher => teacher.work_since" Sortable="true" />
+    @* <PropertyColumn Property="teacher => teacher.work_since" Sortable="true" /> *@
+	<TemplateColumn Context="teacher"
+					Title="Опыт преподавания"
+					Sortable="true"
+					SortBy="GridSort<Teacher>.ByDescending(t => t.work_since)"
+					>
+		@teacher.experience
+	</TemplateColumn>
     <PropertyColumn Property="teacher => teacher.rate" Sortable="true" />
 
     @* <TemplateColumn Context="teacher">
