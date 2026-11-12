@@ -21,5 +21,8 @@ namespace Academy.Models
 		{
 			get => (int)((DateTime.Now.Date - work_since.ToDateTime(new TimeOnly(0)).Date).Days/365.25);
 		}
+
+		//Navigation properties:
+		public ICollection<TeachersDisciplinesRelation> TDR { get; set; }
 	}
 }
