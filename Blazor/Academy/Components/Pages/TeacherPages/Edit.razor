@@ -14,15 +14,15 @@
 <hr /> *@
 @if (Teacher is null)
 {
-    <p><em>Loading...</em></p>
+	<p><em>Loading...</em></p>
 }
 else
 {
 	<h1>@Teacher.full_name</h1>
 	<hr />
-    <div class="row">
-        <div class="">
-            <EditForm method="post" Model="Teacher" OnValidSubmit="UpdateTeacher" FormName="edit" Enhance>
+	<div class="row">
+		<div class="">
+			<EditForm method="post" Model="Teacher" OnValidSubmit="UpdateTeacher" FormName="edit" Enhance>
 				<div class="human-container">
 					<div class="human-edit-fields">
 						<DataAnnotationsValidator />
@@ -84,63 +84,63 @@ else
 						<AddDisciplines Teacher="Teacher" />
 					</div>
 				</div>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </EditForm>
-        </div>
-    </div>
+				<button type="submit" class="btn btn-primary">Save</button>
+			</EditForm>
+		</div>
+	</div>
 }
 
 <div>
-    <a href="/teachers">Back to List</a>
+	<a href="/teachers">Back to List</a>
 </div>
 
 @code {
-    [SupplyParameterFromQuery]
-    private int teacher_id { get; set; }
+	[SupplyParameterFromQuery]
+	private int teacher_id { get; set; }
 
-    [SupplyParameterFromForm]
-    private Teacher? Teacher { get; set; }
+	[SupplyParameterFromForm]
+	private Teacher? Teacher { get; set; }
 
-    protected override async Task OnInitializedAsync()
-    {
-        using var context = DbFactory.CreateDbContext();
-        Teacher ??= await context.Teachers.FirstOrDefaultAsync(m => m.teacher_id == teacher_id);
+	protected override async Task OnInitializedAsync()
+	{
+		using var context = DbFactory.CreateDbContext();
+		Teacher ??= await context.Teachers.FirstOrDefaultAsync(m => m.teacher_id == teacher_id);
 
-        if (Teacher is null)
-        {
-            NavigationManager.NavigateTo("notfound");
-        }
-    }
+		if (Teacher is null)
+		{
+			NavigationManager.NavigateTo("notfound");
+		}
+	}
 
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more information, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
-    private async Task UpdateTeacher()
-    {
-        using var context = DbFactory.CreateDbContext();
-        context.Attach(Teacher!).State = EntityState.Modified;
+	// To protect from overposting attacks, enable the specific properties you want to bind to.
+	// For more information, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+	private async Task UpdateTeacher()
+	{
+		using var context = DbFactory.CreateDbContext();
+		context.Attach(Teacher!).State = EntityState.Modified;
 
-        try
-        {
-            await context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!TeacherExists(Teacher!.teacher_id))
-            {
-                NavigationManager.NavigateTo("notfound");
-            }
-            else
-            {
-                throw;
-            }
-        }
+		try
+		{
+			await context.SaveChangesAsync();
+		}
+		catch (DbUpdateConcurrencyException)
+		{
+			if (!TeacherExists(Teacher!.teacher_id))
+			{
+				NavigationManager.NavigateTo("notfound");
+			}
+			else
+			{
+				throw;
+			}
+		}
 
-        NavigationManager.NavigateTo("/teachers");
-    }
+		NavigationManager.NavigateTo("/teachers");
+	}
 
-    private bool TeacherExists(int teacher_id)
-    {
-        using var context = DbFactory.CreateDbContext();
-        return context.Teachers.Any(e => e.teacher_id == teacher_id);
-    }
+	private bool TeacherExists(int teacher_id)
+	{
+		using var context = DbFactory.CreateDbContext();
+		return context.Teachers.Any(e => e.teacher_id == teacher_id);
+	}
 }
