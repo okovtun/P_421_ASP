@@ -23,21 +23,42 @@
 		</div>
 		<hr />
 		<dl class="row">
-			<dt class="col-sm-2">discipline_name</dt>			<dd class="col-sm-10">@discipline.discipline_name</dd>
-			<dt class="col-sm-2">number_of_lessons</dt>			<dd class="col-sm-10">@discipline.number_of_lessons</dd>
+			<dt class="col-sm-2">discipline_name</dt>
+			<dd class="col-sm-10">@discipline.discipline_name</dd>
+			<dt class="col-sm-2">number_of_lessons</dt>
+			<dd class="col-sm-10">@discipline.number_of_lessons</dd>
 		</dl>
 		<div>
 			<a href="@($"/disciplines")">Back to List</a>
 		</div>
-		@if (discipline.DependentDisciplines != null)
-		{
-			<ul>
-				@foreach (DependentDisciplines dd in discipline.DependentDisciplines)
+
+		<div class="adjacent-disciplines">
+			<div>
+				<h5>Требуемые дисциплины</h5>
+				@if (discipline.RequiredDisciplines != null)
 				{
-					<li>@dd.DependentDiscipline.discipline_name</li>
+					<ul>
+						@foreach (RequiredDisciplines rd in discipline.RequiredDisciplines)
+						{
+							<li>@rd.RequiredDiscipline.discipline_name</li>
+						}
+					</ul>
 				}
-			</ul>
-		}
+			</div>
+			<div>
+				<h5>Зависимые дисциплины</h5>
+				@if (discipline.DependentDisciplines != null)
+				{
+					<ul>
+						@foreach (DependentDisciplines dd in discipline.DependentDisciplines)
+						{
+							<li>@dd.DependentDiscipline.discipline_name</li>
+						}
+					</ul>
+				}
+			</div>
+		</div>
+
 		<hr />
 		<h3>Преподаватели @(discipline.TDR.Count)</h3>
 		<ul>
@@ -63,6 +84,8 @@
 										.ThenInclude(tdr => tdr.Teacher)
 									.Include(d => d.DependentDisciplines)
 										.ThenInclude(dd => dd.DependentDiscipline)
+									.Include(d => d.RequiredDisciplines)
+										.ThenInclude(rd => rd.RequiredDiscipline)
 									.FirstOrDefaultAsync(m => m.discipline_id == discipline_id);
 
 		if (discipline is null)
