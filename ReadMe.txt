@@ -5,6 +5,9 @@ Visual Studio scroll bar:
 https://learn.microsoft.com/en-us/shows/vstips/enhanced-scrollbar-everything-you-wanted-to-know-but-were-afraid-to-ask
 
 TODO:
+1. Для каждой дисциплины отобразить зависимые и требуемые дисциплины;
+
+DONE:
 1. Добавить страницы для преподов;
 2. Добавить фоточки для преподов;
 
