@@ -32,9 +32,16 @@ namespace Academy.Data
 
 			modelBuilder.Entity<Discipline>()
 				.HasMany(d => d.RequiredDisciplines)
-				.WithOne(rd => rd.Discipline)
-				.HasForeignKey(rd => rd.discipline)
+				.WithOne(dd => dd.DependentDiscipline)
+				.HasForeignKey(dd => dd.dependent_discipline)
 				;
+
+
+			//modelBuilder.Entity<Discipline>()
+			//	.HasMany(d => d.RequiredDisciplines)
+			//	.WithOne(rd => rd.Discipline)
+			//	.HasForeignKey(rd => rd.discipline)
+			//	;
 		}
 	}
 }
