@@ -42,7 +42,7 @@ else
 
 			<div class="adjacent-disciplines">
 				<AddRequiredDiscipline @ref="addRequiredDiscipline" Discipline="Discipline" />
-				<AddDependentDiscipline Discipline="Discipline" />
+				<AddDependentDiscipline @ref="addDependentDiscipline" Discipline="Discipline" />
 			</div>
 		</EditForm>
 	</div>
@@ -61,6 +61,7 @@ else
 	private Discipline? Discipline { get; set; }
 
 	AddRequiredDiscipline addRequiredDiscipline;
+	AddDependentDiscipline addDependentDiscipline;
 
 	protected override async Task OnInitializedAsync()
 	{
@@ -88,6 +89,7 @@ else
 		try
 		{
 			addRequiredDiscipline.Update();
+			addDependentDiscipline.Update();
 			await context.SaveChangesAsync();
 		}
 		catch (DbUpdateConcurrencyException)
