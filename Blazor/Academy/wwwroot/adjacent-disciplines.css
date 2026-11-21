@@ -8,3 +8,11 @@
 	{
 		min-width:45%;
 	}
+	.adjacent-disciplines > div
+	{
+		margin:16px;
+	}
+		.adjacent-disciplines > div ul
+		{
+			list-style:none;
+		}

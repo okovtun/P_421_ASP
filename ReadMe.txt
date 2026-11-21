@@ -4,6 +4,8 @@ https://www.youtube.com/playlist?list=PLLauQPadB5QI
 Visual Studio scroll bar:
 https://learn.microsoft.com/en-us/shows/vstips/enhanced-scrollbar-everything-you-wanted-to-know-but-were-afraid-to-ask
 
+!!! Fn+Tab	!!!
+
 TODO:
 1. Добить 'AddRequiredDisciplines';
 
