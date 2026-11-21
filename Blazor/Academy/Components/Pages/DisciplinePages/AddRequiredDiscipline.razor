@@ -11,8 +11,8 @@
 		{
 			if
 			(
-				Discipline.RequiredDisciplines.Where(rd => rd.discipline == d.discipline_id).Any() ||
-				requiredDisciplines.Where(rd => rd.discipline == d.discipline_id).Any()
+			Discipline.RequiredDisciplines.Where(rd => rd.discipline == d.discipline_id).Any() ||
+			requiredDisciplines.Where(rd => rd.discipline == d.discipline_id).Any()
 			) continue;
 			<option value="@d.discipline_id">@d.discipline_name</option>
 		}
@@ -56,13 +56,21 @@
 	{
 		if (discipline == -1) return;
 		DependentDisciplines rd = new DependentDisciplines
-		{
-			discipline = this.discipline,
-			dependent_discipline = Discipline.discipline_id,
-			Discipline = DbFactory.CreateDbContext().Disciplines.Where(d => d.discipline_id == this.discipline).First(),
-			DependentDiscipline = Discipline
-		};
+			{
+				discipline = this.discipline,
+				dependent_discipline = Discipline.discipline_id,
+				Discipline = DbFactory.CreateDbContext().Disciplines.Where(d => d.discipline_id == this.discipline).First(),
+				DependentDiscipline = Discipline
+			};
 		this.requiredDisciplines.Add(rd);
 		this.discipline = -1;
+	}
+	public void Update()
+	{
+		List<DependentDisciplines> stagedDisciplines =
+			Discipline.RequiredDisciplines.AsEnumerable().ToList();//.AddRange(requiredDisciplines);
+		stagedDisciplines.AddRange(requiredDisciplines);
+		Discipline.RequiredDisciplines = new System.Collections.ObjectModel.ObservableCollection<DependentDisciplines>
+											(stagedDisciplines);
 	}
 }
