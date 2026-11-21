@@ -1,4 +1,5 @@
 ﻿@page "/disciplines/edit"
+@rendermode InteractiveServer
 @using Microsoft.EntityFrameworkCore
 @using Academy.Models
 @inject IDbContextFactory<Academy.Data.AcademyContext> DbFactory
@@ -19,7 +20,7 @@ else
 	<h1>@Discipline.discipline_name</h1>
 	<hr />
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-7">
             <EditForm method="post" Model="Discipline" OnValidSubmit="UpdateDiscipline" FormName="edit" Enhance>
                 <DataAnnotationsValidator />
                 <ValidationSummary role="alert"/>
@@ -37,6 +38,8 @@ else
                     <ValidationMessage For="() => Discipline.number_of_lessons" class="text-danger" />
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
+
+				<AddRequiredDiscipline Discipline="Discipline" />
             </EditForm>
         </div>
     </div>
@@ -56,7 +59,11 @@ else
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
-        Discipline ??= await context.Disciplines.FirstOrDefaultAsync(m => m.discipline_id == discipline_id);
+        Discipline ??= await context.Disciplines
+									.Include(d => d.RequiredDisciplines)
+									.ThenInclude(rd => rd.Discipline)
+									.Include(d => d.DependentDisciplines)
+									.FirstOrDefaultAsync(m => m.discipline_id == discipline_id);
 
         if (Discipline is null)
         {
