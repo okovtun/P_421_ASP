@@ -4,7 +4,16 @@ https://www.youtube.com/playlist?list=PLLauQPadB5QI
 Visual Studio scroll bar:
 https://learn.microsoft.com/en-us/shows/vstips/enhanced-scrollbar-everything-you-wanted-to-know-but-were-afraid-to-ask
 
-TODO:
+!!! Fn+Tab	!!!
+
+DONE:
+1. Убрать возможность добавлять дисциплине саму себя в качестве зависимой дисциплины;
+2. Напомнить на занятии влить ветку в 'master';
+
+DONE:
+1. Добить 'AddRequiredDisciplines';
+
+DONE:
 1. Для каждой дисциплины отобразить зависимые и требуемые дисциплины;
 
 DONE:
