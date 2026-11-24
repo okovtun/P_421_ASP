@@ -6,7 +6,7 @@ https://learn.microsoft.com/en-us/shows/vstips/enhanced-scrollbar-everything-you
 
 !!! Fn+Tab	!!!
 
-TODO:
+DONE:
 1. Убрать возможность добавлять дисциплине саму себя в качестве зависимой дисциплины;
 2. Напомнить на занятии влить ветку в 'master';
 
