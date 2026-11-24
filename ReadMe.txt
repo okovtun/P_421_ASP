@@ -4,7 +4,13 @@ https://www.youtube.com/playlist?list=PLLauQPadB5QI
 Visual Studio scroll bar:
 https://learn.microsoft.com/en-us/shows/vstips/enhanced-scrollbar-everything-you-wanted-to-know-but-were-afraid-to-ask
 
-!!! Fn+Tab	!!!
+!!! Fn+Tab	!!! (Win+"+", Win+Escape)
+
+TODO:
+1. Повторить хранимые процедуры;
+2. Просмотреть хранимые процедуры для выставления расписания, 
+   актуальны принимаемые параметры этих процедур;
+
 
 DONE:
 1. Убрать возможность добавлять дисциплине саму себя в качестве зависимой дисциплины;
