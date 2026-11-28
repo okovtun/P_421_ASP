@@ -7,6 +7,9 @@ https://learn.microsoft.com/en-us/shows/vstips/enhanced-scrollbar-everything-you
 !!! Fn+Tab	!!! (Win+"+", Win+Escape)
 
 TODO:
+1. Организовать расписание в виде календаря;
+
+TODO:
 1. Повторить хранимые процедуры;
 2. Просмотреть хранимые процедуры для выставления расписания, 
    актуальны принимаемые параметры этих процедур;
