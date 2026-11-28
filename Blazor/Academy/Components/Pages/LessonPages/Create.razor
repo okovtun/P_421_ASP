@@ -22,7 +22,7 @@
 			<div class="mb-3">
 				<span class="text-danger">*</span>
 				<label for="date" class="form-label">date:</label>
-				<InputDate id="date" @bind-Value="Lesson.date" class="form-control" aria-required="true" @onclick="RefreshDiscipline" />
+				<InputDate id="date" @bind-Value="Lesson.date" class="form-control" aria-required="true" />
 				<ValidationMessage For="() => Lesson.date" class="text-danger" />
 			</div>
 			<div class="mb-3">
@@ -57,10 +57,6 @@
 	protected override void OnInitialized()
 	{
 		context = DbFactory.CreateDbContext();
-	}
-	void RefreshDiscipline()
-	{
-		int i = 0;
 	}
 
 	// To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
