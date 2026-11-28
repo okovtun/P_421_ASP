@@ -11,8 +11,9 @@
 		@if (Group != null)
 		{
 			<option value="-1">--- Выберите дисциплину ---</option>
-			@foreach (Discipline discipline in Context.Disciplines)
+			@foreach (Discipline discipline in disciplines)
 			{
+				if (DisciplineAlreadyInSchedule(discipline.discipline_id)) continue;
 				<option value="@discipline.discipline_id">@discipline.discipline_name</option>
 			}
 		}
@@ -35,9 +36,23 @@
 
 	[Parameter]
 	public Academy.Data.AcademyContext Context { get; set; }
-
+	List<Discipline> disciplines;
 	int discipline = -1;
-
+	protected override void OnInitialized()
+	{
+		disciplines = Context.Disciplines.ToList();
+	}
+	bool DisciplineAlreadyInSchedule(int discipline)
+	{
+		int schedule_count =
+		Context.Schedule
+		.Where(l => l.group == Group.group_id && l.discipline == discipline)
+		.Count();
+		int number_of_lessons = Context.Disciplines
+		.Where(d => d.discipline_id == discipline)
+		.First().number_of_lessons;
+		return schedule_count == number_of_lessons;
+	}
 	protected override void OnParametersSet()
 	{
 		if(discipline < 0)discipline = Group != null ? -1 : -2;
